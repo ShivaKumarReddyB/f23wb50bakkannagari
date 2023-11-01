@@ -13,10 +13,15 @@ block content
         { model: 'Truck', year: 2022, color: 'Black' }
       ]
     -  
-    each vehicle in results 
-     .col-sm-2
+    each vehicle,idx in results 
+     .col-sm-2(onclick=`buy(${idx})`)
         h3 Vehicle
         p Model: #{vehicle.model}
         p Year: #{vehicle.year}
         p Color: #{vehicle.color}
-    
+
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index}.`);
+    }
+  
